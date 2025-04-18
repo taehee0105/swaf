@@ -131,6 +131,6 @@ void hashlittle2_safe(const void *key, size_t length, uint32_t *pc, uint32_t *pb
 }
 
 uint32_t hashbig(const void *key, size_t length, uint32_t initval) {
-    // For simplicity we just call hashlittle here
+    /* 간단하게 하려고 hashlittle이라고 부름 */
     return hashlittle(key, length, initval);
 }
