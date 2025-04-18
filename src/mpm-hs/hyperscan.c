@@ -1,4 +1,4 @@
-/* 16진수 패턴을 ASCII로 변환 */
+/* 16진수 패턴 -> ASCII 변환 */
 
 #include <stdio.h>
 #include <stdint.h>
