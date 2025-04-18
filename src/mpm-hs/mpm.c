@@ -1,15 +1,15 @@
-/* Simplified and adapted from Suricata's util-mpm.c for standalone Hyperscan MPM use */
+/* MPM 엔진 API 제공 */
 
 #include <stdlib.h>
 #include <string.h>
 
-#include "mpm.h"               // Custom header for MpmCtx, MpmThreadCtx, etc.
+#include "mpm.h"
 #include "mpm_table.h"
-#include "util-mpm-hs.h"       // Hyperscan matcher registration and core logic
-#include "mem.h"               // For SCMalloc, SCRealloc, SCFree
+#include "mpm_hs.h"
+#include "mem.h"
 
 MpmTableElmt mpm_table[MPM_TABLE_SIZE];
-uint8_t mpm_default_matcher = MPM_HS;  // Default to Hyperscan
+uint8_t mpm_default_matcher = MPM_HS;  /* hyperscan을 기본으로 설정 */
 
 void MpmInitCtx(MpmCtx *mpm_ctx, uint8_t matcher) {
     mpm_ctx->mpm_type = matcher;
@@ -67,7 +67,7 @@ void MpmPrintCtx(MpmCtx *mpm_ctx) {
 }
 
 void MpmPrintThreadCtx(MpmThreadCtx *thread_ctx) {
-    // Optional implementation for debugging
+    /* 디버깅을 위한 선택적 구현 */
 }
 
 void MpmTableSetup(void) {
@@ -75,4 +75,3 @@ void MpmTableSetup(void) {
     mpm_default_matcher = MPM_HS;
     MpmHSRegister();
 }
-
