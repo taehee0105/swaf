@@ -1,7 +1,7 @@
 /* BUG_ON 메시지 출력 헤더 */
 
-#ifndef __WAF_BUG_ON_H__
-#define __WAF_BUG_ON_H__
+#ifndef SWAF_BUGON_H
+#define SWAF_BUGON_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,5 +18,4 @@
     #define BUG_ON(x) ((void)0)
 #endif
 
-#endif
-
+#endif /* SWAF_BUGON_H */
