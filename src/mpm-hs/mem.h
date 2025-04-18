@@ -1,13 +1,14 @@
 /* 메모리 할당, 해제 매크로 제공 헤더 */
 
-#ifndef __WAF_MEM_H__
-#define __WAF_MEM_H__
+#ifndef SWAF_MEM_H
+#define SWAF_MEM_H
 
 #include <stdlib.h>
 #include <string.h>
 
-/* cpp에서 에러 */
 /**
+ * -- cpp error code --
+ * 
  * #define SCMalloc(sz)            malloc((sz))
  * #define SCCalloc(nm, sz)        calloc((nm), (sz))
  * #define SCRealloc(ptr, sz)      realloc((ptr), (sz))
@@ -51,4 +52,4 @@ static inline void *waf_posix_memalign_wrapper(size_t size, size_t align) {
 }
 #endif
 
-#endif // __WAF_MEM_H__
+#endif /* SWAF_MEM_H */
