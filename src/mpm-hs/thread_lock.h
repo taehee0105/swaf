@@ -1,6 +1,6 @@
 /* 뮤텍스 wrapping 헤더 */
-#ifndef THREAD_LOCK_H
-#define THREAD_LOCK_H
+#ifndef SWAF_THREAD_LOCK_H
+#define SWAF_THREAD_LOCK_H
 
 #include <pthread.h>
 
@@ -12,5 +12,4 @@ typedef pthread_mutex_t SCMutex;
 #define SCMutexLock(mutex)       pthread_mutex_lock((mutex))
 #define SCMutexUnlock(mutex)     pthread_mutex_unlock((mutex))
 
-#endif
-
+#endif /* SWAF_THREAD_LOCK_H */
