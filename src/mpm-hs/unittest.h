@@ -1,7 +1,7 @@
-/* 테스트 프레임워크 헤더 */
+/* 유닛 테스트 프레임워크 헤더 */
 
-#ifndef __WAF_UNITTEST_H__
-#define __WAF_UNITTEST_H__
+#ifndef SWAF_UNITTEST_H
+#define SWAF_UNITTEST_H
 
 #ifdef UNITTESTS
 
@@ -35,4 +35,4 @@ extern int unittests_fatal;
 
 #endif /* UNITTESTS */
 
-#endif /* __WAF_UNITTEST_H__ */
+#endif /* SWAF_UNITTEST_H */
