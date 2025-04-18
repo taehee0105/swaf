@@ -1,6 +1,8 @@
+/* 해시 테이블 구현 */
+
+#include "debug.h"
 #include "hash_table.h"
 #include "mem.h"
-#include "debug.h"
 #include "mpmcmp.h"
 
 HashTable* HashTableInit(uint32_t size, uint32_t (*Hash)(struct HashTable_ *, void *, uint16_t), char (*Compare)(void *, uint16_t, void *, uint16_t), void (*Free)(void *)) {
@@ -101,7 +103,7 @@ void HashTableIterate(HashTable *ht, void (*Callback)(void *, void *), void *aux
 
 uint32_t HashTableGenericHash(HashTable *ht, void *data, uint16_t len) {
     /**
-     * cpp error code
+     * -- cpp error code --
      * uint8_t *d = data;
      */
     uint8_t *d = (uint8_t *)data;
@@ -115,4 +117,3 @@ char HashTableDefaultCompare(void *d1, uint16_t l1, void *d2, uint16_t l2) {
     if (l1 != l2) return 0;
     return SCMemcmp(d1, d2, l1) == 0;
 }
-
