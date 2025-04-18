@@ -1,3 +1,5 @@
+/* 파일 경로 처리 */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -6,8 +8,8 @@
 #include <stdbool.h>
 #include <limits.h>
 
-#include "path.h"
 #include "mem.h"
+#include "path.h"
 
 #ifdef OS_WIN32
 #define DIRECTORY_SEPARATOR '\\'
@@ -15,10 +17,15 @@
 #define DIRECTORY_SEPARATOR '/'
 #endif
 
+/* 디렉토리 생성 후 권한 부여 */
 int SCDefaultMkDir(const char *path) {
     return mkdir(path, 0755);
 }
 
+/**
+ * 경로를 한 단계씩 분리해가며 디렉토리 트리 생성 
+ * SCDefaultMkDir() 사용
+ */
 int SCCreateDirectoryTree(const char *path, const bool final) {
     char pathbuf[PATH_MAX];
     char *p;
@@ -54,6 +61,7 @@ int SCCreateDirectoryTree(const char *path, const bool final) {
     return 0;
 }
 
+/* dir, fname을 하나의 전체 경로로 생성 */
 int PathMerge(char *out_buf, size_t buf_size, const char *dir, const char *fname)
 {
     if (dir == NULL || strlen(dir) == 0 || fname == NULL)
@@ -75,6 +83,7 @@ int PathMerge(char *out_buf, size_t buf_size, const char *dir, const char *fname
     return 0;
 }
 
+/* 결과를 malloc()한 메모리에 담아 반환 */
 char *PathMergeAlloc(const char *dir, const char *fname)
 {
     char temp[PATH_MAX];
@@ -85,12 +94,14 @@ char *PathMergeAlloc(const char *dir, const char *fname)
     return ret;
 }
 
+/* 주어진 경로가 실제하는지 검사 */
 bool SCPathExists(const char *path)
 {
     struct stat sb;
     return stat(path, &sb) == 0;
 }
 
+/* 경로에서 파일 이름만 추출 */
 const char *SCBasename(const char *path)
 {
     if (!path || strlen(path) == 0)
@@ -100,6 +111,7 @@ const char *SCBasename(const char *path)
     return (final && *(final + 1) != '\0') ? final + 1 : NULL;
 }
 
+/* 경로 내 디렉토리 역참조 문자열 존재 여부 확인 */
 bool SCPathContainsTraversal(const char *path)
 {
 #ifdef OS_WIN32
@@ -109,4 +121,3 @@ bool SCPathContainsTraversal(const char *path)
 #endif
     return strstr(path, pattern) != NULL;
 }
-
