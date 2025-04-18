@@ -1,7 +1,7 @@
-/* 해시 테이블 조회를 위한 32bit 해시 생성 헤더 */
+/* 해시 함수(Bob Jenkins Lookup3) 구현 헤더 */
 
-#ifndef HASH_LOOKUP3_H
-#define HASH_LOOKUP3_H
+#ifndef SWAF_HASH_LOOKUP3_H
+#define SWAF_HASH_LOOKUP3_H
 
 #include <stdint.h>
 #include <stddef.h>
@@ -20,5 +20,4 @@ void hashlittle2_safe(const void *key, size_t length, uint32_t *pc, uint32_t *pb
 
 uint32_t hashbig(const void *key, size_t length, uint32_t initval);
 
-#endif // HASH_LOOKUP3_H
-
+#endif /* SWAF_HASH_LOOKUP3_H */
