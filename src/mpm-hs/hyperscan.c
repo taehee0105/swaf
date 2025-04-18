@@ -1,7 +1,10 @@
+/* 16진수 패턴을 ASCII로 변환 */
+
 #include <stdio.h>
 #include <stdint.h>
-#include "mem.h"      /* SCCalloc */
+
 #include "hyperscan.h"
+#include "mem.h"
 
 char *HSRenderPattern(const uint8_t *pat, uint16_t pat_len)
 {
@@ -23,4 +26,3 @@ char *HSRenderPattern(const uint8_t *pat, uint16_t pat_len)
     *sp = '\0';
     return str;
 }
-
