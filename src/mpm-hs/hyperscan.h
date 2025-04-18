@@ -1,4 +1,4 @@
-/* 16진수 패턴을 ASCII 변환 헤더 */
+/* 16진수 패턴 -> ASCII 변환 헤더 */
 
 #ifndef SWAF_HYPERSCAN_H
 #define SWAF_HYPERSCAN_H
