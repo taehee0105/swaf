@@ -1,21 +1,22 @@
-/* 패턴 매칭 결과에 대응되는 룰 ID(SigIntId) 저장, 관리 헤더 */
+/* 탐지된 룰 ID(SigIntId) 동적 저장, 관리 헤더 */
 
-#ifndef PREFILTER_H
-#define PREFILTER_H
+#ifndef SWAF_PREFILTER_H
+#define SWAF_PREFILTER_H
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "sig_id.h"   /* for SigIntId */
-#include "debug.h"    /* for SCLogDebug, SCLogError */
-#include "mem.h"      /* for SCMalloc, SCRealloc, SCFree */
+
+#include "debug.h"
+#include "mem.h"
+#include "sig_id.h"
 
 /**
- * @brief Structure to hold a list of matched rule IDs
+ * @brief 탐지된 룰 ID들을 저장하는 컨테이너
  */
 typedef struct PrefilterRuleStore_ {
-    SigIntId *rule_id_array;      /* Array of rule IDs */
-    uint32_t rule_id_array_cnt;   /* Number of rule IDs in the array */
-    uint32_t rule_id_array_size;  /* Allocated size of the array */
+    SigIntId *rule_id_array;      /* 탐지된 룰 ID 배열 */
+    uint32_t rule_id_array_cnt;   /* 현재 사용된 룰 ID 개수 */
+    uint32_t rule_id_array_size;  /* 할당된 배열의 전체 크기 */
 } PrefilterRuleStore;
 
 int PrefilterAddSidsResize(PrefilterRuleStore *pmq, uint32_t new_size);
@@ -46,4 +47,4 @@ void PmqReset(PrefilterRuleStore *pmq);
 void PmqCleanup(PrefilterRuleStore *pmq);
 void PmqFree(PrefilterRuleStore *pmq);
 
-#endif /* PREFILTER_H */
+#endif /* SWAF_PREFILTER_H */
