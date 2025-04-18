@@ -1,7 +1,7 @@
-/* 해시 테이블 라이브러리 헤더 */
+/* 해시 테이블 구현 헤더 */
 
-#ifndef HASH_TABLE_H
-#define HASH_TABLE_H
+#ifndef SWAF_HASH_TABLE_H
+#define SWAF_HASH_TABLE_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -36,4 +36,4 @@ void HashTableIterate(HashTable *ht, void (*CallbackFn)(void *, void *), void *a
 uint32_t HashTableGenericHash(HashTable *ht, void *data, uint16_t datalen);
 char HashTableDefaultCompare(void *data1, uint16_t len1, void *data2, uint16_t len2);
 
-#endif /* HASH_TABLE_H */
+#endif /* SWAF_HASH_TABLE_H */
