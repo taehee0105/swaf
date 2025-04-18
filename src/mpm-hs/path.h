@@ -1,7 +1,7 @@
 /* 파일/디렉토리 경로 생성, 병합, 존재 여부 확인 등을 위한 헤더 */
 
-#ifndef STANDALONE_UTIL_PATH_H
-#define STANDALONE_UTIL_PATH_H
+#ifndef SWAF_PATH_H
+#define SWAF_PATH_H
 
 #include <stdbool.h>
 #include <sys/stat.h>
@@ -19,11 +19,11 @@
 
 int SCDefaultMkDir(const char *path);
 int SCCreateDirectoryTree(const char *path, const bool final);
-bool SCPathExists(const char *path); /* 구현은 path.c */
+bool SCPathExists(const char *path);
 
 int PathMerge(char *out_buf, size_t buf_size, const char *dir, const char *fname);
 char *PathMergeAlloc(const char *dir, const char *fname);
 const char *SCBasename(const char *path);
 bool SCPathContainsTraversal(const char *path);
 
-#endif /* STANDALONE_UTIL_PATH_H */
+#endif /* SWAF_PATH_H */
