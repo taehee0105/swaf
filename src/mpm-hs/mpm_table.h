@@ -1,10 +1,17 @@
-/* MPM 엔진 선택/호출을 위한 함수 테이블 정의 헤더 */
-#ifndef __WAF_MPM_TABLE_H__
-#define __WAF_MPM_TABLE_H__
+/**
+ * MPM 엔진 선택/호출을 위한 함수 테이블 정의 헤더
+ * 
+ * 기존 Suricata에서는 Aho-Corasick 등과 같은
+ * 다른 MPM 엔진을 사용할 때도 이용
+ * 현재 swaf는 hyperscan only, 
+ * 하지만 굳이 구조를 바꿀 필요는 없다고 판단
+ */
+#ifndef SWAF_MPM_TABLE_H
+#define SWAF_MPM_TABLE_H
 
 #include "mpm_ctx.h"
-#include "sig_id.h"
 #include "prefilter.h"
+#include "sig_id.h"
 
 /* 엔진 기능 플래그 */
 #define MPM_FEATURE_FLAG_DEPTH    (1 << 0)
@@ -37,5 +44,4 @@ typedef struct MpmTableElmt_ {
 extern MpmTableElmt mpm_table[MPM_TABLE_SIZE];
 extern uint8_t mpm_default_matcher;
 
-#endif // __WAF_MPM_TABLE_H__
-
+#endif /* SWAF_MPM_TABLE_H */
