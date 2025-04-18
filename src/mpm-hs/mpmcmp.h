@@ -1,7 +1,7 @@
-/* 정확도/대소문자 구분/길이 기반 비교 함수들을 제공하는 헤더 */
+/* 정확도, 대소문자 구분, 길이 기반 비교 함수 제공 헤더 */
 
-#ifndef __WAF_MEMCMP_H__
-#define __WAF_MEMCMP_H__
+#ifndef SWAF_MEMCMP_H
+#define SWAF_MEMCMP_H
 
 #include <string.h>
 #include <ctype.h>
@@ -14,7 +14,7 @@ static inline int SCMemcmp(const void *s1, const void *s2, size_t n)
 static inline int SCMemcmpLowercase(const void *s1, const void *s2, size_t n)
 {
     /** 
-     * cpp error code
+     * -- cpp error code --
      *  const unsigned char *a = s1;
      * const unsigned char *b = s2;
      */
@@ -38,4 +38,4 @@ static inline int SCBufferCmp(const void *s1, size_t len1,
     return 1;
 }
 
-#endif
+#endif /* SWAF_MEMCMP_H */
