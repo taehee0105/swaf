@@ -1,10 +1,11 @@
 /* MPM 구성 컨텍스트 헤더 */
 
-#ifndef __WAF_MPM_CTX_H__
-#define __WAF_MPM_CTX_H__
+#ifndef SWAF_MPM_CTX_H
+#define SWAF_MPM_CTX_H
 
 #include <stdint.h>
 #include <hs/hs.h>
+
 #include "sig_id.h"
 
 /* 패턴 플래그 정의 */
@@ -40,7 +41,7 @@ typedef struct MpmThreadCtx_ {
 
 /* Hyperscan 기반 MPM 컨텍스트 */
 typedef struct MpmCtx_ {
-    void *ctx;  /* SCHSCtx* 등 내부 엔진 구조체 */
+    void *ctx;                /* SCHSCtx* 등 내부 엔진 구조체 */
     uint8_t mpm_type;
     uint8_t flags;
     uint16_t maxdepth;
@@ -56,4 +57,4 @@ typedef struct MpmCtx_ {
     MpmPattern **init_hash;
 } MpmCtx;
 
-#endif // __WAF_MPM_CTX_H__
+#endif /* SWAF_MPM_CTX_H */
