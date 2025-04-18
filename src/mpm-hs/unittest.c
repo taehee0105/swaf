@@ -1,4 +1,4 @@
-// 수정한 unittest.c (Suricata 종속성 제거 및 우리 헤더 기반)
+/* 유닛 테스트 프레임워크 */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,9 +6,9 @@
 #include <stdint.h>
 #include <pcre2.h>
 
+#include "mem.h"
+#include "optimize.h"
 #include "unittest.h"
-#include "optimize.h"      // likely, unlikely
-#include "mem.h"            // SCMalloc, SCFree
 
 #ifdef UNITTESTS
 
